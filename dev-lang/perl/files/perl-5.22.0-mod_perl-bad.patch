@@ -1,0 +1,19 @@
+diff -urN perl-5.22.0.dist/perl.h perl-5.22.0/perl.h
+--- perl-5.22.0.dist/perl.h	2015-05-13 13:19:30.000000000 -0700
++++ perl-5.22.0/perl.h	2015-07-23 17:26:31.000000000 -0700
+@@ -5583,7 +5583,14 @@
+ EXTCONST runops_proc_t PL_runops_dbg
+   INIT(Perl_runops_debug);
+ 
+-#define EXT_MGVTBL EXTCONST MGVTBL
++/* PERL_GLOBAL_STRUCT_PRIVATE wants to keep global data like the
++ * magic vtables const, but this is incompatible with SWIG which
++ * does want to modify the vtables. */
++#ifdef PERL_GLOBAL_STRUCT_PRIVATE
++#  define EXT_MGVTBL EXTCONST MGVTBL
++#else
++#  define EXT_MGVTBL EXT MGVTBL
++#endif
+ 
+ #define PERL_MAGIC_READONLY_ACCEPTABLE 0x40
+ #define PERL_MAGIC_VALUE_MAGIC 0x80
