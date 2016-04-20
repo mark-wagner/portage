@@ -1,0 +1,27 @@
+#!/sbin/runscript
+# Copyright 1999-2012 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+SERVIIO_USER=serviio
+SERVIIO_CMD=/opt/serviio/bin/serviio.sh
+
+depend() {
+    need net
+}
+
+start() {
+    ebegin "Starting Serviio Media Server"
+    start-stop-daemon --start --exec ${SERVIIO_CMD} --make-pidfile \
+        --user ${SERVIIO_USER} --background \
+        --pidfile /var/run/serviio.pid
+    eend $?
+}
+
+stop() {
+    ebegin "Stopping Serviio Media Server"
+    ${SERVIIO_CMD} -stop
+    start-stop-daemon --stop \
+        --user ${SERVIIO_USER} --pidfile /var/run/serviio.pid
+    eend $?
+}
