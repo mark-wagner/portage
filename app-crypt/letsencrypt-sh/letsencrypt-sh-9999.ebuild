@@ -17,7 +17,9 @@ MY_PN="letsencrypt.sh"
 
 EGIT_REPO_URI="git://github.com/lukas2511/${MY_PN}.git"
 
-if [ ${PV} != "9999" ] ; then
+if [ ${PV} == "9999" ] ; then
+	KEYWORDS=""
+else
 	EGIT_COMMIT="v${PV}"
 fi
 
