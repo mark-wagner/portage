@@ -11,6 +11,8 @@ MODULE_A="${PN}-v${PV}.tar.gz"
 
 inherit perl-module
 
+S="${WORKDIR}/${PN}-v${PV}"
+
 DESCRIPTION="CloudFlare Dynamic DNS"
 
 LICENSE="|| ( Artistic GPL-1 GPL-2 GPL-3 )"
