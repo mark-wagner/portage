@@ -7,6 +7,8 @@ EAPI=5
 MODULE_AUTHOR="PWR"
 MODULE_VERSION="0.55.4"
 
+MODULE_A="${PN}-v${PV}.tar.gz"
+
 inherit perl-module
 
 DESCRIPTION="Object Orientated Interface to CloudFlare client API"

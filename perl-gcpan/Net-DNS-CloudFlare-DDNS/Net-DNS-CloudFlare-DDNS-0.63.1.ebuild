@@ -7,6 +7,8 @@ EAPI=5
 MODULE_AUTHOR="PWR"
 MODULE_VERSION="0.63.1"
 
+MODULE_A="${PN}-v${PV}.tar.gz"
+
 inherit perl-module
 
 DESCRIPTION="CloudFlare Dynamic DNS"
