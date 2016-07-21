@@ -19,5 +19,5 @@ IUSE=""
 
 DEPEND=">=perl-gcpan/Net-DNS-CloudFlare-DDNS-0.06
 	>=dev-perl/Readonly-1.30.0
-	>=dev-perl/yaml-0.900.0
+	>=dev-perl/YAML-0.900.0
 	dev-lang/perl"
