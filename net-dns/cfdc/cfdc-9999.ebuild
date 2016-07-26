@@ -30,7 +30,13 @@ DEPEND=${RDEPEND}
 src_install() {
 	dodoc README.md LICENSE cfdc.conf.example
 	dobin cfdc
-	newconfd cfdc.conf.d cfdc.conf
+	newconfd cfdc.conf.d cfdc
 	newinitd cfdc.init cfdc
+	keepdir /var/log/cfdc
+	chown nobody:nobody ${D}/var/log/cfdc
+	insinto /etc/logrotate.d/
+	newins cfdc.logrotate cfdc
+	insinto /etc/tmpfiles.d/
+	newins cfdc.tmpfiles.d cfdc.conf
 }
 
