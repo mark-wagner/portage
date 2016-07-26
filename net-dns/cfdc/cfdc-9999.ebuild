@@ -24,6 +24,7 @@ RDEPEND="
 	dev-lang/python
 	dev-python/requests
 	sys-apps/openrc
+	app-admin/logrotate
 	"
 DEPEND=${RDEPEND}
 
