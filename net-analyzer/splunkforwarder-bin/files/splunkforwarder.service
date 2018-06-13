@@ -1,0 +1,11 @@
+[Unit]
+Description=Splunk forwarder
+After=network.target
+
+[Service]
+Type=forking
+ExecStart=/opt/splunkforwarder/bin/splunk start
+ExecStop=/opt/splunkforwarder/bin/splunk stop
+
+[Install]
+WantedBy=multi-user.target
