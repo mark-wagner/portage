@@ -6,7 +6,7 @@ EAPI=7
 PYTHON_COMPAT=( python2_7 )
 inherit eutils user systemd unpacker pax-utils python-single-r1
 
-COMMIT="ad6e39743"
+COMMIT="f5213a238"
 
 _APPNAME="plexmediaserver"
 _USERNAME="plex"
@@ -72,7 +72,7 @@ src_unpack() {
 
 src_install() {
 	# Move the config to the correct place
-	local CONFIG_VANILLA="/etc/default/plexmediaserver"
+	local CONFIG_VANILLA="/usr/lib/plexmediaserver/lib/plexmediaserver.default"
 	local CONFIG_PATH="/etc/${_SHORTNAME}"
 	dodir "${CONFIG_PATH}"
 	insinto "${CONFIG_PATH}"
